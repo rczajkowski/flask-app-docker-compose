@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block body %}
+<body>
+    {% for post in posts %}
+        {{ post.title }} - {{ post.pub_date }} - autor:{{ post.user.username }}
+        <br>
+        {{ post.content }}
+        <br><br>
+
+    {% endfor %}
+</body>
+{% endblock %}

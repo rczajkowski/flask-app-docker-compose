@@ -1,0 +1,14 @@
+<div class="nav-collapse collapse">
+            <ul class="nav">
+                <li class="active"><a href="/">Home</a></li>
+                {% if current_user.is_authenticated%}
+                    <li><a href="/add">Add new post</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% endif %}
+                {% if not current_user.is_authenticated%}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('signup') }}">Signup</a></li>
+                {% endif %}
+            </ul>
+</div>
+{% block body %}{% endblock %}

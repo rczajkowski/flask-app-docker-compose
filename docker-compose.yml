@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  db:
+    build: database/.
+    hostname: db
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecure
+  web:
+    build: web/.
+    ports:
+      - "80:80"
+    links:
+      - db
+    depends_on:
+      - db
+
